@@ -1,42 +1,52 @@
 <h1 align="center">
-   Atividade - JSON-Server: Fake-API do início ao Deploy
+	Fake-API para o app myPlant (capstone)
 </h1>
 
-<p align="center">
-  <a href="#endpoints">Endpoints</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</p>
-
-
-# **Endpoints**
+<p align="center">API que possui uma base de dados de flores pública e gerenciamento de usuários.</p>
 
 A API tem um total de 5 endpoints, sendo 2 de autenticação do usuário, e 3 de visualização, criação e atualização dos posts
 
-O url base da API é https://s3b11.herokuapp.com/
-                    
-                    
-<h2>Rotas para o usuário</h2>
-### <h3 align ='center'> Registrar usuário </h3>
+O url base da API é https://my-plants-app.herokuapp.com/
 
-`POST /users -  FORMATO DA REQUISIÇÃO`
+json do insomnia
+
+
+Tabela de conteúdos
+=================
+<!--ts-->
+* [Usuário](#User)
+	* [Signup](#Signup)
+	* [Login](#Login)
+	* [Listar Usuário](#ListUser)
+  * [Plantas do Usuário](#Plants)
+    * [Listar plantas](#ListUserPlant)
+    * [Adicionar planta](#AddUserPlant)
+    * [Editar planta](#EditUserPlant)
+    * [Remover planta](#RemoveUserPlant)
+<!--te-->
+
+              
+<h2 id='User'>Rotas para o usuário</h2>
+<h3 id='Signup'align ='center'>Signup</h3>
+
+`POST /signup -  FORMATO DA REQUISIÇÃO`
 ```json
 {
 	"email": "kenzinho@mail.com",
 	"password": "123456",
 	"name": "kenzinho",
-	"age": 99
 }
 ```
 
 Caso dê tudo certo, a resposta será assim:
 
-`POST /users -  FORMATO DA RESPOSTA - STATUS 201`
+`POST /signup -  FORMATO DA RESPOSTA - STATUS 201`
 ```json
 {
 	"accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBhdWxvQGVtYWlsLmNvbSIsImlhdCI6MTY1MTgwMjAzMCwiZXhwIjoxNjUxODA1NjMwLCJzdWIiOiIyIn0.FohGG4i7LtMSZqyoW0uf9bKVID9q-N37fzFf6AaL_6w",
 	"user": {
 		"email": "kenzinho@mail.com",
 		"name": "kenzinho",
-		"age": 99,
 		"id": 2
 	}
 }
@@ -46,13 +56,22 @@ Caso dê tudo certo, a resposta será assim:
 
 Email já cadastrado:
 
-`POST /users - `
+`POST /signup - `
 ``  FORMATO DA RESPOSTA - STATUS 401``
 ```json
 "Email already exists"
 ```
 
-### <h3 align ='center'> Login </h3>
+Senha com poucos caracteres:
+
+`POST /signup - `
+``  FORMATO DA RESPOSTA - STATUS 401``
+```json
+"Password is too short"
+```
+
+
+<h3 id='Login' align ='center'> Login </h3>
 
 `POST /login - FORMATO DA REQUISIÇÃO`
 ```json
@@ -71,128 +90,158 @@ Caso dê tudo certo, a resposta será assim:
 	"user": {
 		"email": "kenzinho@mail.com",
 		"name": "Kenzinho",
-		"age": 38,
 		"id": 1
 	}
 }
 ```
 
-Com essa resposta, temos o token, o qual possibilita, visualizar todos os posts, criar um posts, editar o próprio post
+Com essa resposta, temos o id e o token do usuário, podendo assim criar e editar a sua lista de plantas, e fazer comentários na lista pública de plantas
 
-## Rotas para os posts
 
-Todas as rotas sobre os posts precisam de autorização, somente usuários logados podem ver todos os posts e somente o criador do post pode edita-lo
 
-### <h3 align ='center'> Criar post </h3>
 
-`PATCH /posts -  FORMATO DA REQUISIÇÃO`
-```json
-{
-	"msg": "O terceiro módulo foi muito legaaaal",
-	"type": "text",
-	"userId": 1
-}
-```
+<h3 id='ListUser' align ='center'> Listar Usuário </h3>
+
+Para pegar os dados de um usuário é preciso do seu id, e fazer a autorização com seu token
+
+`GET /users/:id - FORMATO DA REQUISIÇÃO`
+
 
 Caso dê tudo certo, a resposta será assim:
 
-`PATCH /posts -  FORMATO DA RESPOSTA - STATUS 201`
+`GET /users/:id -  FORMATO DA RESPOSTA - STATUS 201`
 ```json
 {
-	"msg": "O terceiro módulo foi muito legaaaal",
-	"type": "text",
+	"email": "kenzinho@mail.com",
+	"password": "$2a$10$eOVLQ/oykzNV/G7Y9rc3tOsfe9t9lq6BhlNcaiEWK4W8h3VDG0bP6",
+	"name": "Kenzinho",
+	"id": 1
+}
+```
+
+<h4 align ='center'> Listar usuário e suas plantas </h4>
+
+`GET /users/:id?_embed=plants - FORMATO DA REQUISIÇÃO`
+
+
+Caso dê tudo certo, a resposta será assim:
+
+`GET /users/:id?_embed=plants -  FORMATO DA RESPOSTA - STATUS 201`
+```json
+{
+	"email": "kenzinho@mail.com",
+	"password": "$2a$10$eOVLQ/oykzNV/G7Y9rc3tOsfe9t9lq6BhlNcaiEWK4W8h3VDG0bP6",
+	"name": "Kenzinho",
+	"id": 1,
+	"plants": [
+		{
+			"name": "orquídea",
+			"id": 3,
+			"userId": 1
+		},
+		{
+			"name": "samambaia",
+			"userId": 1,
+			"id": 4
+		}
+	]
+}
+```
+
+
+<h2 id='Plants'>Rotas para as plantas do usuário</h2>
+
+Todas as rotas sobre plantas do usuário precisam de autorização
+
+### <h3 id='ListUserPlant' align ='center'> Listar plantas do usuário</h3>
+
+`GET /plantas -  FORMATO DA REQUISIÇÃO`
+
+
+Caso dê tudo certo, a resposta será assim:
+
+`GET /plants -  FORMATO DA RESPOSTA - STATUS 201`
+```json
+[
+	{
+		"name": "orquídea",
+		"id": 3,
+		"userId": 1
+	},
+	{
+		"name": "samambaia",
+		"userId": 1,
+		"id": 4
+	}
+]
+```
+
+<h3 id='AddUserPlant'align ='center'>Adicionar planta na lista do usuário</h3>
+
+Não se esqueça de passar o id do usuário na propriedade userId
+
+`POST /plants -  FORMATO DA REQUISIÇÃO`
+```json
+{
+	"name": "samambaia",
 	"userId": 1,
-	"id": 2
-}
-```
-
-### <h3 align ='center'> Editar post </h3>
-
-É passado o ID do post na url do endpoint. 
-<br>
-É possível editar o type e a msg do post, dependendo do que é passado no body.
-
-`PATCH /posts/:postID -  FORMATO DA REQUISIÇÃO`
-```json
-{
-  "msg": "O módulo atual é o meu favorito"
 }
 ```
 
 Caso dê tudo certo, a resposta será assim:
 
-`PATCH /posts/:postID -  FORMATO DA RESPOSTA - STATUS 201`
+`POST /plants -  FORMATO DA RESPOSTA - STATUS 201`
 ```json
 {
-  "msg": "O módulo atual é o meu favorito",
-  "type": "text",
-  "userId": 1,
-  "id": 2
+	"name": "samambaia",
+	"userId": 1,
+	"id": 4
 }
 ```
 
-### <h3 align ='center'> Listar posts </h3>
 
-Nessa aplicação o usuário deve fazer o login para ver a lista de posts
+<h3 id='EditUserPlant'align ='center'>Editar planta do usuário</h3>
 
-`GET /posts -  FORMATO DA RESPOSTA - STATUS 200`
+Passe o id da planta na url, e no body as propriedades que deseja alterar
+
+`PATCH /plants/:id -  FORMATO DA REQUISIÇÃO`
 ```json
-[
-	{
-		"msg": "capstone la vamos nos",
-		"type": "text",
-		"userId": 2,
-		"id": 1
-	},
-	{
-		"msg": "O módulo atual é o meu favorito",
-		"type": "text",
-		"userId": 1,
-		"id": 2
-	},
-	{
-		"msg": "testesss",
-		"type": "text",
-		"userId": 1,
-		"id": 3
-	}
-]
-```
-Podemos utilizar os query params para mudar a lista, mudando a paginação, assim alterar quantos posts queremos no perPage.
-No exemplo abaixo capturamos somente os dois primeiros posts
-
-`GET /posts?_page=1&_limit=2 - FORMATO DA RESPOSTA - STATUS 200`
-```json
-[
-	{
-		"msg": "capstone la vamos nos",
-		"type": "text",
-		"userId": 2,
-		"id": 1
-	},
-	{
-		"msg": "O módulo atual é o meu favorito",
-		"type": "text",
-		"userId": 1,
-		"id": 2
-	}
-]
+{
+	"name": "samambaia americana"
+}
 ```
 
-Podemos também pesquisar por uma palavra em específico nas msg.
-No exemplo abaixo somente é retornado os posts que possuem a palavra favorito
+Caso dê tudo certo, a resposta será assim:
 
-`GET /posts?msg_like=favorito - FORMATO DA RESPOSTA - STATUS 200`
+`PATCH /plants/:id -  FORMATO DA RESPOSTA - STATUS 201`
 ```json
-[
-	{
-		"msg": "O módulo atual é o meu favorito",
-		"type": "text",
-		"userId": 1,
-		"id": 2
-	}
-]
+{
+	"name": "samambaia americana",
+	"userId": 1,
+	"id": 4
+}
 ```
+
+
+
+<h3 id='RemoveUserPlant'align ='center'>Delete a planta do usuário</h3>
+
+Passe o id da planta na url, e no body as propriedades que deseja alterar
+
+`DELETE /plants/:id -  FORMATO DA REQUISIÇÃO`
+
+
+Caso dê tudo certo, a resposta será assim:
+
+`DELETE /plants/:id -  FORMATO DA RESPOSTA - STATUS 201`
+```json
+{}
+```
+
+
+
+
+
 
 ## Rotas que necessitam de autorização
 
