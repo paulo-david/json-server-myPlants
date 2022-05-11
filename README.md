@@ -23,6 +23,12 @@ Tabela de conteúdos
     * [Adicionar planta](#AddUserPlant)
     * [Editar planta](#EditUserPlant)
     * [Remover planta](#RemoveUserPlant)
+* [Plantas Públicas](#PublicPlants)
+	* [Listar plantas públicas](#ListPublicPlants)
+	* [Adicionar planta pública](#AddPublicPlants)
+	* [Editar planta pública](#EditPublicPlants)
+	* [Remover planta pública](#RemovePublicPlants)
+
 <!--te-->
 
               
@@ -222,8 +228,6 @@ Caso dê tudo certo, a resposta será assim:
 }
 ```
 
-
-
 <h3 id='RemoveUserPlant'align ='center'>Delete a planta do usuário</h3>
 
 Passe o id da planta na url, e no body as propriedades que deseja alterar
@@ -238,10 +242,105 @@ Caso dê tudo certo, a resposta será assim:
 {}
 ```
 
+<h2 id='PublicPlants'>Rotas para as plantas públicas</h2>
+
+Todos podem ver as plantas públicas, mas somente usuários cadastrados podem modifica-lá ( é necessário fazer a autentificação nesse caso )
+
+### <h3 id='ListPublicPlants' align ='center'> Listar plantas públicas</h3>
+
+`GET /public_plants -  FORMATO DA REQUISIÇÃO`
 
 
+Caso dê tudo certo, a resposta será assim:
+
+`GET /public_plants -  FORMATO DA RESPOSTA - STATUS 201`
+```json
+[
+	{
+		"name": "planta",
+		"sci_name": "sci planta",
+		"info": "planta planta",
+		"basic_care": "precisa de terra",
+		"color": "red"
+		"id": 2,
+	},
+	{
+		"name": "samambaia",
+		"sci_name": "sci samambaia",
+		"info": "samambaia não samba",
+		"basic_care": "precisa de sol",
+		"color": "diverse"
+		"id": 1,
+	}
+]
+```
+
+<h3 id='AddPublicPlants'align ='center'>Adicionar planta pública</h3>
 
 
+`POST /public_plants -  FORMATO DA REQUISIÇÃO`
+```json
+{
+	"name": "rosa",
+	"sci_name": "rosa gallica",
+	"info": "A rosa tem a cor rosa",
+	"basic_care": "Bastante água (Se não tiver água não substitua por cachaça)",
+	"color": "pink"
+}
+```
+
+Caso dê tudo certo, a resposta será assim:
+
+`POST /public_plants -  FORMATO DA RESPOSTA - STATUS 201`
+```json
+{
+	"name": "rosa",
+	"sci_name": "rosa gallica",
+	"info": "A rosa tem a cor rosa",
+	"basic_care": "Bastante água (Se não tiver água não substitua por cachaça)",
+	"color": "pink",
+	"id": 3
+}
+```
+
+<h3 id='EditPublicPlants'align ='center'>Editar planta pública</h3>
+
+Passe o id da planta na url
+
+`PATCH /public_plants/:id -  FORMATO DA REQUISIÇÃO`
+```json
+{
+	"name": "rosa rosinha"
+}
+```
+
+Caso dê tudo certo, a resposta será assim:
+
+`PATCH /public_plants/:id -  FORMATO DA RESPOSTA - STATUS 201`
+```json
+{
+	"name": "rosa rosinha",
+	"sci_name": "rosa gallica",
+	"info": "A rosa tem a cor rosa",
+	"basic_care": "Bastante água (Se não tiver água não substitua por cachaça)",
+	"color": "pink",
+	"id": 5
+}
+```
+
+<h3 id='RemovePublicPlants'align ='center'>Delete a planta pública</h3>
+
+Passe o id da planta na url
+
+`DELETE /public_plants/:id -  FORMATO DA REQUISIÇÃO`
+
+
+Caso dê tudo certo, a resposta será assim:
+
+`DELETE /public_plants/:id -  FORMATO DA RESPOSTA - STATUS 201`
+```json
+{}
+```
 
 ## Rotas que necessitam de autorização
 
