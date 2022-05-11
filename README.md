@@ -6,9 +6,9 @@
 
 A API tem um total de 5 endpoints, sendo 2 de autenticação do usuário, e 3 de visualização, criação e atualização dos posts
 
-O url base da API é https://my-plants-app.herokuapp.com/
+O url base da API é https://my-plants-app.herokuapp.com
 
-json do insomnia
+<a href='./Insomnia_myPlants.json'>Json do Insomnia</a>
 
 
 Tabela de conteúdos
