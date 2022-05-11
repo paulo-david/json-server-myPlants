@@ -1,4 +1,13 @@
 {
+  "name": "basics-json-server-auth",
+  "version": "1.0.0",
+  "description": "Básico da criação de um JSON Server com Auth.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./server.js"
+  },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "json-server": "^0.17.0",
