@@ -26,7 +26,7 @@ Tabela de conteúdos
     * [Remover planta](#RemoveUserPlant)
   * [Comentários das plantas públicas](#Comments)
     * [Listar comentários](#ListComments)
-		* [Listar comentários da planta](#ListPublicPlantsComments)
+  	* [Listar comentários da planta](#ListPublicPlantsComments)
     * [Adicionar comentário](#AddComments)
     * [Editar comentário](#EditComments)
     * [Remover comentário](#RemoveComments)
