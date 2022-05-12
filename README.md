@@ -34,6 +34,7 @@ Tabela de conteúdos
 	* [Adicionar planta pública](#AddPublicPlants)
 	* [Editar planta pública](#EditPublicPlants)
 	* [Remover planta pública](#RemovePublicPlants)
+* [Autenticação](#Autorization)
 
 
 <!--te-->
@@ -291,7 +292,7 @@ Caso dê tudo certo, a resposta será assim:
 			"name": "kenzinho",
 		},
 		"msg": "Gosto demais dessa planta",
-		"public_plantId": "2",
+		"public_plantId": 2,
 		"id": 1
 	},
 	{
@@ -300,7 +301,7 @@ Caso dê tudo certo, a resposta será assim:
 			"name": "kenzinho",
 		},
 		"msg": "Best planta ever",
-		"public_plantId": "1",
+		"public_plantId": 1,
 		"id": 2
 	},
 	{
@@ -309,7 +310,7 @@ Caso dê tudo certo, a resposta será assim:
 			"name": "carinha que mora logo ali",
 		},
 		"msg": "Planta Legal",
-		"public_plantId": "1",
+		"public_plantId": 1,
 		"id": 3
 	}
 ]
@@ -331,7 +332,7 @@ Caso dê tudo certo, a resposta será assim:
 			"name": "kenzinho",
 		},
 		"msg": "Gosto demais dessa planta",
-		"public_plantId": "2",
+		"public_plantId": 2,
 		"id": 1
 	}
 ]
@@ -349,7 +350,7 @@ Não se esqueça de passar o id do usuário na propriedade userId, e do id da pl
 		"name": "kenzinho",
 	},
 	"msg": "Gosto demais dessa planta",
-	"public_plantId": "2",
+	"public_plantId": 2,
 }
 ```
 
@@ -363,7 +364,7 @@ Caso dê tudo certo, a resposta será assim:
 		"name": "kenzinho",
 	},
 	"msg": "Gosto demais dessa planta",
-	"public_plantId": "2",
+	"public_plantId": 2,
 	"id": 1
 }
 ```
@@ -487,7 +488,7 @@ Passe o id da planta na url
 
 `DELETE /public_plants/:id -  FORMATO DA REQUISIÇÃO`
 
-## Rotas que necessitam de autorização
+<h2 id='Autorization'>Rotas que necessitam de autorização</h2>
 
 Rotas que necessitam de autorização deve ser informado no cabeçalho da requisição o campo "Authorization", dessa forma:
 
