@@ -226,13 +226,13 @@ Caso dê tudo certo, a resposta será assim:
 ```json
 {
 	"userId":1,
-	"id": 1,
 	"name": "samambaia",
 	"imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQljUVqZI7wR4zc7b7DMOMKZNBpRymBiQz_6w&usqp=CAU",
 	"sci_name": "sci samambaia",
 	"info": "é uma samambaia",
 	"basic_care": "precisa de muito sol",
-	"color": "green"
+	"color": "green",
+	"id": 1
 }
 ```
 
@@ -254,13 +254,13 @@ Caso dê tudo certo, a resposta será assim:
 ```json
 {
 	"userId":1,
-	"id": 1,
 	"name": "samambaia",
 	"imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQljUVqZI7wR4zc7b7DMOMKZNBpRymBiQz_6w&usqp=CAU",
 	"sci_name": "sci samambaia",
 	"info": "é uma samambaia",
 	"basic_care": "precisa de muito sol",
-	"color": "green"
+	"color": "green",
+	"id": 1
 }
 ```
 
@@ -290,27 +290,27 @@ Caso dê tudo certo, a resposta será assim:
 		"owner": {
 			"name": "kenzinho",
 		},
-		"id": 1
 		"msg": "Gosto demais dessa planta",
 		"public_plantId": "2",
+		"id": 1
 	},
 	{
 		"userId": 1,
 		"owner": {
 			"name": "kenzinho",
 		},
-		"id": 2
 		"msg": "Best planta ever",
 		"public_plantId": "1",
+		"id": 2
 	},
 	{
 		"userId": 24,
 		"owner": {
 			"name": "carinha que mora logo ali",
 		},
-		"id": 3
 		"msg": "Planta Legal",
 		"public_plantId": "1",
+		"id": 3
 	}
 ]
 ```
@@ -330,9 +330,9 @@ Caso dê tudo certo, a resposta será assim:
 		"owner": {
 			"name": "kenzinho",
 		},
-		"id": 1
 		"msg": "Gosto demais dessa planta",
 		"public_plantId": "2",
+		"id": 1
 	}
 ]
 ```
@@ -362,9 +362,9 @@ Caso dê tudo certo, a resposta será assim:
 	"owner": {
 		"name": "kenzinho",
 	},
-	"id": 1,
 	"msg": "Gosto demais dessa planta",
 	"public_plantId": "2",
+	"id": 1
 }
 ```
 
@@ -388,9 +388,9 @@ Caso dê tudo certo, a resposta será assim:
 	"owner": {
 		"name": "kenzinho",
 	},
-	"id": 1,
 	"msg": "amo essa plant",
 	"public_plantId": 2,
+	"id": 1
 }
 ```
 
@@ -416,13 +416,13 @@ Caso dê tudo certo, a resposta será assim:
 ```json
 [
 	{
-		"id": 2,
 		"name": "planta",
 		"imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ84zJZ5pgI3I-R0yxNFp0-yBUEx0Q68RADTQ&usqp=CAU",
 		"sci_name": "sci planta",
 		"info": "planta planta",
 		"basic_care": "precisa de terra",
-		"color": "red"
+		"color": "red",
+		"id": 2
 	},
 
 ]
@@ -447,12 +447,12 @@ Caso dê tudo certo, a resposta será assim:
 `POST /public_plants -  FORMATO DA RESPOSTA - STATUS 201`
 ```json
 {
-	"id": 3,
 	"name": "rosa",
 	"sci_name": "rosa gallica",
 	"info": "A rosa tem a cor rosa",
 	"basic_care": "Bastante água (Se não tiver água não substitua por cachaça)",
 	"color": "pink",
+	"id": 3
 }
 ```
 
@@ -472,12 +472,12 @@ Caso dê tudo certo, a resposta será assim:
 `PATCH /public_plants/:id -  FORMATO DA RESPOSTA - STATUS 201`
 ```json
 {
-	"id": 5,
 	"name": "rosa rosinha",
 	"sci_name": "rosa gallica",
 	"info": "A rosa tem a cor rosa",
 	"basic_care": "Bastante água (Se não tiver água não substitua por cachaça)",
-	"color": "pink"
+	"color": "pink",
+	"id": 5
 }
 ```
 
