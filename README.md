@@ -26,6 +26,7 @@ Tabela de conteúdos
     * [Remover planta](#RemoveUserPlant)
   * [Comentários das plantas públicas](#Comments)
     * [Listar comentários](#ListComments)
+		* [Listar comentários da planta](#ListPublicPlantsComments)
     * [Adicionar comentário](#AddComments)
     * [Editar comentário](#EditComments)
     * [Remover comentário](#RemoveComments)
@@ -316,7 +317,9 @@ Caso dê tudo certo, a resposta será assim:
 ]
 ```
 
-Para pesquisar todos os comentários de uma determinada planta pública, segue o código abaixo:
+<h4 id='ListPublicPlantsComments' align ='center'> Listar comentários de uma planta pública em específico</h4>
+
+Passe o id da planta na url da requisição
 
 `GET /comments?public_plantId=:id -  FORMATO DA REQUISIÇÃO`
 
