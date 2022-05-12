@@ -18,6 +18,7 @@ Tabela de conteúdos
 	* [Signup](#Signup)
 	* [Login](#Login)
 	* [Listar Usuário](#ListUser)
+	* [Listar Usuário com suas plantas](#ListUserWithPlants)
   * [Plantas do Usuário](#Plants)
     * [Listar plantas](#ListUserPlant)
     * [Adicionar planta](#AddUserPlant)
@@ -52,14 +53,14 @@ Tabela de conteúdos
 
 Caso dê tudo certo, a resposta será assim:
 
-`POST /signup -  FORMATO DA RESPOSTA - STATUS 201`
+`POST /signup - FORMATO DA RESPOSTA - STATUS 201`
 ```json
 {
 	"accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBhdWxvQGVtYWlsLmNvbSIsImlhdCI6MTY1MTgwMjAzMCwiZXhwIjoxNjUxODA1NjMwLCJzdWIiOiIyIn0.FohGG4i7LtMSZqyoW0uf9bKVID9q-N37fzFf6AaL_6w",
 	"user": {
 		"email": "kenzinho@mail.com",
 		"name": "kenzinho",
-		"id": 2
+		"id": 1
 	}
 }
 ```
@@ -68,16 +69,14 @@ Caso dê tudo certo, a resposta será assim:
 
 Email já cadastrado:
 
-`POST /signup - `
-``  FORMATO DA RESPOSTA - STATUS 401``
+`POST /signup - FORMATO DA RESPOSTA - STATUS 401`
 ```json
 "Email already exists"
 ```
 
 Senha com poucos caracteres:
 
-`POST /signup - `
-``  FORMATO DA RESPOSTA - STATUS 401``
+`POST /signup - FORMATO DA RESPOSTA - STATUS 401`
 ```json
 "Password is too short"
 ```
@@ -107,10 +106,7 @@ Caso dê tudo certo, a resposta será assim:
 }
 ```
 
-Com essa resposta, temos o id e o token do usuário, podendo assim criar e editar a sua lista de plantas, e fazer comentários na lista pública de plantas
-
-
-
+Com essa resposta, temos o id e o token do usuário, podendo assim, criar e editar a sua lista de plantas, e fazer comentários na lista pública de plantas
 
 <h3 id='ListUser' align ='center'> Listar Usuário </h3>
 
@@ -118,10 +114,9 @@ Para pegar os dados de um usuário é preciso do seu id, e fazer a autorização
 
 `GET /users/:id - FORMATO DA REQUISIÇÃO`
 
-
 Caso dê tudo certo, a resposta será assim:
 
-`GET /users/:id -  FORMATO DA RESPOSTA - STATUS 201`
+`GET /users/1 -  FORMATO DA RESPOSTA - STATUS 201`
 ```json
 {
 	"email": "kenzinho@mail.com",
@@ -131,14 +126,14 @@ Caso dê tudo certo, a resposta será assim:
 }
 ```
 
-<h4 align ='center'> Listar usuário e suas plantas </h4>
+<h3 id='ListUserWithPlants' align ='center'> Listar usuário e suas plantas </h3>
 
 `GET /users/:id?_embed=plants - FORMATO DA REQUISIÇÃO`
 
 
 Caso dê tudo certo, a resposta será assim:
 
-`GET /users/:id?_embed=plants -  FORMATO DA RESPOSTA - STATUS 201`
+`GET /users/:1?_embed=plants -  FORMATO DA RESPOSTA - STATUS 201`
 ```json
 {
 	"email": "kenzinho@mail.com",
@@ -147,14 +142,22 @@ Caso dê tudo certo, a resposta será assim:
 	"id": 1,
 	"plants": [
 		{
-			"name": "orquídea",
-			"id": 3,
-			"userId": 1
+			"name": "planta",
+			"imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ84zJZ5pgI3I-R0yxNFp0-yBUEx0Q68RADTQ&usqp=CAU",
+			"sci_name": "sci planta",
+			"info": "é uma planta",
+			"basic_care": "precisa de terra",
+			"color": "diverse"
+			"id": 1,
 		},
 		{
 			"name": "samambaia",
-			"userId": 1,
-			"id": 4
+			"imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQljUVqZI7wR4zc7b7DMOMKZNBpRymBiQz_6w&usqp=CAU",
+			"sci_name": "sci samambaia",
+			"info": "é uma samambaia",
+			"basic_care": "precisa de muito sol",
+			"color": "green"
+			"id": 1,
 		}
 	]
 }
