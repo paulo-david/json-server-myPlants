@@ -145,8 +145,8 @@ Caso dê tudo certo, a resposta será assim:
 		{
 			"userId":1,
 			"name": "planta",
-			"imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ84zJZ5pgI3I-R0yxNFp0-yBUEx0Q68RADTQ&usqp=CAU",
 			"sci_name": "sci planta",
+			"imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ84zJZ5pgI3I-R0yxNFp0-yBUEx0Q68RADTQ&usqp=CAU",
 			"info": "é uma planta",
 			"basic_care": "precisa de terra",
 			"color": "diverse"
@@ -155,8 +155,8 @@ Caso dê tudo certo, a resposta será assim:
 		{
 			"userId":1,
 			"name": "samambaia",
-			"imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQljUVqZI7wR4zc7b7DMOMKZNBpRymBiQz_6w&usqp=CAU",
 			"sci_name": "sci samambaia",
+			"imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQljUVqZI7wR4zc7b7DMOMKZNBpRymBiQz_6w&usqp=CAU",
 			"info": "é uma samambaia",
 			"basic_care": "precisa de muito sol",
 			"color": "green"
@@ -184,8 +184,8 @@ Caso dê tudo certo, a resposta será assim:
 	{
 		"userId":1,
 		"name": "planta",
-		"imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ84zJZ5pgI3I-R0yxNFp0-yBUEx0Q68RADTQ&usqp=CAU",
 		"sci_name": "sci planta",
+		"imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ84zJZ5pgI3I-R0yxNFp0-yBUEx0Q68RADTQ&usqp=CAU",
 		"info": "é uma planta",
 		"basic_care": "precisa de terra",
 		"color": "diverse"
@@ -194,8 +194,8 @@ Caso dê tudo certo, a resposta será assim:
 	{
 		"userId":1,
 		"name": "samambaia",
-		"imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQljUVqZI7wR4zc7b7DMOMKZNBpRymBiQz_6w&usqp=CAU",
 		"sci_name": "sci samambaia",
+		"imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQljUVqZI7wR4zc7b7DMOMKZNBpRymBiQz_6w&usqp=CAU",
 		"info": "é uma samambaia",
 		"basic_care": "precisa de muito sol",
 		"color": "green"
@@ -213,8 +213,8 @@ Não se esqueça de passar o id do usuário na propriedade userId
 {
 	"userId":1,
 	"name": "samambaia",
-	"imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQljUVqZI7wR4zc7b7DMOMKZNBpRymBiQz_6w&usqp=CAU",
 	"sci_name": "sci samambaia",
+	"imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQljUVqZI7wR4zc7b7DMOMKZNBpRymBiQz_6w&usqp=CAU",
 	"info": "é uma samambaia",
 	"basic_care": "precisa de muito sol",
 	"color": "green"
@@ -228,8 +228,8 @@ Caso dê tudo certo, a resposta será assim:
 {
 	"userId":1,
 	"name": "samambaia",
-	"imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQljUVqZI7wR4zc7b7DMOMKZNBpRymBiQz_6w&usqp=CAU",
 	"sci_name": "sci samambaia",
+	"imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQljUVqZI7wR4zc7b7DMOMKZNBpRymBiQz_6w&usqp=CAU",
 	"info": "é uma samambaia",
 	"basic_care": "precisa de muito sol",
 	"color": "green",
@@ -256,8 +256,8 @@ Caso dê tudo certo, a resposta será assim:
 {
 	"userId":1,
 	"name": "samambaia",
-	"imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQljUVqZI7wR4zc7b7DMOMKZNBpRymBiQz_6w&usqp=CAU",
 	"sci_name": "sci samambaia",
+	"imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQljUVqZI7wR4zc7b7DMOMKZNBpRymBiQz_6w&usqp=CAU",
 	"info": "é uma samambaia",
 	"basic_care": "precisa de muito sol",
 	"color": "green",
@@ -419,9 +419,9 @@ Caso dê tudo certo, a resposta será assim:
 	{
 		"name": "planta",
 		"sci_name": "sci planta",
+		"imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ84zJZ5pgI3I-R0yxNFp0-yBUEx0Q68RADTQ&usqp=CAU",
 		"info": "planta planta",
 		"basic_care": "precisa de terra",
-		"imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ84zJZ5pgI3I-R0yxNFp0-yBUEx0Q68RADTQ&usqp=CAU",
 		"color": "red",
 		"id": 2
 	},
@@ -437,9 +437,9 @@ Caso dê tudo certo, a resposta será assim:
 {
 	"name": "rosa",
 	"sci_name": "rosa gallica",
+	"imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3o1koxMDuDIb9Jg9cxBfhyiEDR5FlwVuQBA&usqp=CAU",
 	"info": "A rosa tem a cor rosa",
 	"basic_care": "Bastante água (Se não tiver água não substitua por cachaça)",
-	"imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3o1koxMDuDIb9Jg9cxBfhyiEDR5FlwVuQBA&usqp=CAU",
 	"color": "pink"
 }
 ```
@@ -451,9 +451,9 @@ Caso dê tudo certo, a resposta será assim:
 {
 	"name": "rosa",
 	"sci_name": "rosa gallica",
+	"imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3o1koxMDuDIb9Jg9cxBfhyiEDR5FlwVuQBA&usqp=CAU",
 	"info": "A rosa tem a cor rosa",
 	"basic_care": "Bastante água (Se não tiver água não substitua por cachaça)",
-	"imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3o1koxMDuDIb9Jg9cxBfhyiEDR5FlwVuQBA&usqp=CAU",
 	"color": "pink",
 	"id": 3
 }
@@ -477,9 +477,9 @@ Caso dê tudo certo, a resposta será assim:
 {
 	"name": "rosa rosinha",
 	"sci_name": "rosa gallica",
+	"imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3o1koxMDuDIb9Jg9cxBfhyiEDR5FlwVuQBA&usqp=CAU",
 	"info": "A rosa tem a cor rosa",
 	"basic_care": "Bastante água (Se não tiver água não substitua por cachaça)",
-	"imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3o1koxMDuDIb9Jg9cxBfhyiEDR5FlwVuQBA&usqp=CAU",
 	"color": "pink",
 	"id": 5
 }
