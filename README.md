@@ -23,16 +23,17 @@ Tabela de conteúdos
     * [Adicionar planta](#AddUserPlant)
     * [Editar planta](#EditUserPlant)
     * [Remover planta](#RemoveUserPlant)
-* [Plantas Públicas](#PublicPlants)
-	* [Listar plantas públicas](#ListPublicPlants)
-	* [Adicionar planta pública](#AddPublicPlants)
-	* [Editar planta pública](#EditPublicPlants)
-	* [Remover planta pública](#RemovePublicPlants)
   * [Comentários das plantas públicas](#Comments)
     * [Listar comentários](#ListComments)
     * [Adicionar comentário](#AddComments)
     * [Editar comentário](#EditComments)
     * [Remover comentário](#RemoveComments)
+* [Plantas Públicas](#PublicPlants)
+	* [Listar plantas públicas](#ListPublicPlants)
+	* [Adicionar planta pública](#AddPublicPlants)
+	* [Editar planta pública](#EditPublicPlants)
+	* [Remover planta pública](#RemovePublicPlants)
+
 
 <!--te-->
 
@@ -235,7 +236,7 @@ Caso dê tudo certo, a resposta será assim:
 
 <h3 id='RemoveUserPlant'align ='center'>Delete a planta do usuário</h3>
 
-Passe o id da planta na url, e no body as propriedades que deseja alterar
+Passe o id da planta na url
 
 `DELETE /plants/:id -  FORMATO DA REQUISIÇÃO`
 
@@ -243,6 +244,141 @@ Passe o id da planta na url, e no body as propriedades que deseja alterar
 Caso dê tudo certo, a resposta será assim:
 
 `DELETE /plants/:id -  FORMATO DA RESPOSTA - STATUS 201`
+```json
+{}
+```
+
+<h2 id='Comments'>Rotas para os comentários das plantas públicas</h2>
+
+Os comentários estão visíveis para todo mundo, mas para criar, editar e deletar eles, é preciso fazer a autenticação.
+
+### <h3 id='ListComments' align ='center'> Listar comentários</h3>
+
+`GET /comments -  FORMATO DA REQUISIÇÃO`
+
+
+Caso dê tudo certo, a resposta será assim:
+
+`GET /comments -  FORMATO DA RESPOSTA - STATUS 201`
+```json
+[
+	{
+		"msg": "Gosto demais dessa planta",
+		"public_plantId": "2",
+		"userId": 1,
+		"owner": {
+			"name": "kenzinho",
+		},
+		"id": 1
+	},
+	{
+		"msg": "Best planta ever",
+		"public_plantId": "1",
+		"userId": 1,
+		"owner": {
+			"name": "kenzinho",
+		},
+		"id": 2
+	},
+	{
+		"msg": "Planta Legal",
+		"public_plantId": "1",
+		"userId": 24,
+		"owner": {
+			"name": "carinha que mora logo ali",
+		},
+		"id": 3
+	}
+]
+```
+
+Para pesquisar todos os comentários de uma determinada planta pública, segue o código abaixo:
+
+`GET /comments?public_plantId=:id -  FORMATO DA REQUISIÇÃO`
+
+
+`GET /comments?public_plantId=:2-  FORMATO DA RESPOSTA - STATUS 201`
+```json
+[
+	{
+		"msg": "Gosto demais dessa planta",
+		"public_plantId": "2",
+		"userId": 1,
+		"owner": {
+			"name": "kenzinho",
+		},
+		"id": 1
+	}
+]
+```
+
+<h3 id='AddComments'align ='center'>Adicionar comentário em uma planta pública</h3>
+
+Não se esqueça de passar o id do usuário na propriedade userId, e do id da planta que o comentário se refere
+
+`POST /comments -  FORMATO DA REQUISIÇÃO`
+```json
+{
+	"msg": "Gosto demais dessa planta",
+	"public_plantId": "2",
+	"userId": 1,
+	"owner": {
+		"name": "kenzinho",
+	},
+}
+```
+
+Caso dê tudo certo, a resposta será assim:
+
+`POST /comments -  FORMATO DA RESPOSTA - STATUS 201`
+```json
+{
+	"msg": "Gosto demais dessa planta",
+	"public_plantId": "2",
+	"userId": 1,
+	"owner": {
+		"name": "kenzinho",
+	},
+	"id": 1
+}
+```
+
+<h3 id='EditComments'align ='center'>Editar comentário de uma planta pública</h3>
+
+Passe o id da planta pública na url, e no body as propriedades que deseja alterar
+
+`PATCH /comments/:id -  FORMATO DA REQUISIÇÃO`
+```json
+{
+	"msg": "amo essa plant"
+}
+```
+
+Caso dê tudo certo, a resposta será assim:
+
+`PATCH /comments/:1 -  FORMATO DA RESPOSTA - STATUS 201`
+```json
+{
+	"msg": "amo essa plant",
+	"public_plantId": 2,
+	"userId": 1,
+	"owner": {
+		"name": "kenzinho",
+	},
+	"id": 1
+}
+```
+
+<h3 id='RemoveComments'align ='center'>Deletar o comentário</h3>
+
+Passe o id da planta publica na url
+
+`DELETE /comments/:id -  FORMATO DA REQUISIÇÃO`
+
+
+Caso dê tudo certo, a resposta será assim:
+
+`DELETE /comments/1 -  FORMATO DA RESPOSTA - STATUS 201`
 ```json
 {}
 ```
@@ -312,7 +448,7 @@ Caso dê tudo certo, a resposta será assim:
 
 Passe o id da planta na url
 
-`PATCH /public_plants/:id -  FORMATO DA REQUISIÇÃO`
+`PATCH /public_plants/:3 -  FORMATO DA REQUISIÇÃO`
 ```json
 {
 	"name": "rosa rosinha"
@@ -345,33 +481,6 @@ Caso dê tudo certo, a resposta será assim:
 `DELETE /public_plants/:id -  FORMATO DA RESPOSTA - STATUS 201`
 ```json
 {}
-```
-
-<h2 id='Comments'>Rotas para os comentários das plantas públicas</h2>
-
-Os comentários estão visíveis para todo mundo, mas para criar, editar e deletar eles, 
-
-### <h3 id='ListUserPlant' align ='center'> Listar plantas do usuário</h3>
-
-`GET /plantas -  FORMATO DA REQUISIÇÃO`
-
-
-Caso dê tudo certo, a resposta será assim:
-
-`GET /plants -  FORMATO DA RESPOSTA - STATUS 201`
-```json
-[
-	{
-		"name": "orquídea",
-		"id": 3,
-		"userId": 1
-	},
-	{
-		"name": "samambaia",
-		"userId": 1,
-		"id": 4
-	}
-]
 ```
 
 ## Rotas que necessitam de autorização
