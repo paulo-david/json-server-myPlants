@@ -28,6 +28,11 @@ Tabela de conteúdos
 	* [Adicionar planta pública](#AddPublicPlants)
 	* [Editar planta pública](#EditPublicPlants)
 	* [Remover planta pública](#RemovePublicPlants)
+  * [Comentários das plantas públicas](#Comments)
+    * [Listar comentários](#ListComments)
+    * [Adicionar comentário](#AddComments)
+    * [Editar comentário](#EditComments)
+    * [Remover comentário](#RemoveComments)
 
 <!--te-->
 
@@ -340,6 +345,33 @@ Caso dê tudo certo, a resposta será assim:
 `DELETE /public_plants/:id -  FORMATO DA RESPOSTA - STATUS 201`
 ```json
 {}
+```
+
+<h2 id='Comments'>Rotas para os comentários das plantas públicas</h2>
+
+Os comentários estão visíveis para todo mundo, mas para criar, editar e deletar eles, 
+
+### <h3 id='ListUserPlant' align ='center'> Listar plantas do usuário</h3>
+
+`GET /plantas -  FORMATO DA REQUISIÇÃO`
+
+
+Caso dê tudo certo, a resposta será assim:
+
+`GET /plants -  FORMATO DA RESPOSTA - STATUS 201`
+```json
+[
+	{
+		"name": "orquídea",
+		"id": 3,
+		"userId": 1
+	},
+	{
+		"name": "samambaia",
+		"userId": 1,
+		"id": 4
+	}
+]
 ```
 
 ## Rotas que necessitam de autorização

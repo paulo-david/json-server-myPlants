@@ -13,7 +13,7 @@ const rules = auth.rewriter({
   plants: 600,
 
   public_plants:664,
-  comments:664,
+  comments:644,
 });
 
 app.use(cors());

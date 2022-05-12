@@ -7,33 +7,7 @@
       "name": "Kenzinho"
     }
   ],
-  "plants": [
-    {
-      "name": "orquídea",
-      "id": 3,
-      "userId": 1
-    }
-  ],
-  "public_plants": [
-    {
-      "name": "teste",
-      "id": 1
-    },
-    {
-      "name": "teste 222",
-      "id": 2
-    }
-  ],
-  "comments": [
-    {
-      "owner": {
-        "name": "1",
-        "id": "2"
-      },
-      "msg": "msg teste",
-      "date": "date teste",
-      "public_plantId": "2",
-      "id": 1
-    }
-  ]
+  "plants": [],
+  "public_plants": [],
+  "comments": []
 }
