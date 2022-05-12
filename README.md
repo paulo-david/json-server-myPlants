@@ -182,16 +182,6 @@ Caso dê tudo certo, a resposta será assim:
 [
 	{
 		"userId":1,
-		"name": "planta",
-		"imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ84zJZ5pgI3I-R0yxNFp0-yBUEx0Q68RADTQ&usqp=CAU",
-		"sci_name": "sci planta",
-		"info": "é uma planta",
-		"basic_care": "precisa de terra",
-		"color": "diverse"
-		"id": 1,
-	},
-	{
-		"userId":1,
 		"name": "samambaia",
 		"imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQljUVqZI7wR4zc7b7DMOMKZNBpRymBiQz_6w&usqp=CAU",
 		"sci_name": "sci samambaia",
@@ -199,6 +189,16 @@ Caso dê tudo certo, a resposta será assim:
 		"basic_care": "precisa de muito sol",
 		"color": "green"
 		"id": 1,
+	},
+	{
+		"userId":1,
+		"name": "planta",
+		"imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ84zJZ5pgI3I-R0yxNFp0-yBUEx0Q68RADTQ&usqp=CAU",
+		"sci_name": "sci planta",
+		"info": "é uma planta",
+		"basic_care": "precisa de terra",
+		"color": "diverse"
+		"id": 2,
 	}
 ]
 ```
@@ -250,12 +250,17 @@ Passe o id da planta na url, e no body as propriedades que deseja alterar
 
 Caso dê tudo certo, a resposta será assim:
 
-`PATCH /plants/:id -  FORMATO DA RESPOSTA - STATUS 201`
+`PATCH /plants/:1 -  FORMATO DA RESPOSTA - STATUS 201`
 ```json
 {
-	"name": "samambaia americana",
-	"userId": 1,
-	"id": 4
+	"userId":1,
+	"name": "samambaia",
+	"imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQljUVqZI7wR4zc7b7DMOMKZNBpRymBiQz_6w&usqp=CAU",
+	"sci_name": "sci samambaia",
+	"info": "é uma samambaia",
+	"basic_care": "precisa de muito sol",
+	"color": "green"
+	"id": 1,
 }
 ```
 
@@ -265,13 +270,6 @@ Passe o id da planta na url
 
 `DELETE /plants/:id -  FORMATO DA REQUISIÇÃO`
 
-
-Caso dê tudo certo, a resposta será assim:
-
-`DELETE /plants/:id -  FORMATO DA RESPOSTA - STATUS 201`
-```json
-{}
-```
 
 <h3 id='Comments'>Rotas para os comentários das plantas públicas</h3>
 
@@ -321,6 +319,8 @@ Para pesquisar todos os comentários de uma determinada planta pública, segue o
 
 `GET /comments?public_plantId=:id -  FORMATO DA REQUISIÇÃO`
 
+
+Caso dê tudo certo, a resposta será assim:
 
 `GET /comments?public_plantId=:2-  FORMATO DA RESPOSTA - STATUS 201`
 ```json
@@ -400,13 +400,6 @@ Passe o id da planta publica na url
 
 `DELETE /comments/:id -  FORMATO DA REQUISIÇÃO`
 
-
-Caso dê tudo certo, a resposta será assim:
-
-`DELETE /comments/1 -  FORMATO DA RESPOSTA - STATUS 201`
-```json
-{}
-```
 
 <h2 id='PublicPlants'>Rotas para as plantas públicas</h2>
 
@@ -499,14 +492,6 @@ Caso dê tudo certo, a resposta será assim:
 Passe o id da planta na url
 
 `DELETE /public_plants/:id -  FORMATO DA REQUISIÇÃO`
-
-
-Caso dê tudo certo, a resposta será assim:
-
-`DELETE /public_plants/:id -  FORMATO DA RESPOSTA - STATUS 201`
-```json
-{}
-```
 
 ## Rotas que necessitam de autorização
 
