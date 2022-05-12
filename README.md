@@ -142,6 +142,7 @@ Caso dê tudo certo, a resposta será assim:
 	"id": 1,
 	"plants": [
 		{
+			"userId":1,
 			"name": "planta",
 			"imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ84zJZ5pgI3I-R0yxNFp0-yBUEx0Q68RADTQ&usqp=CAU",
 			"sci_name": "sci planta",
@@ -151,6 +152,7 @@ Caso dê tudo certo, a resposta será assim:
 			"id": 1,
 		},
 		{
+			"userId":1,
 			"name": "samambaia",
 			"imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQljUVqZI7wR4zc7b7DMOMKZNBpRymBiQz_6w&usqp=CAU",
 			"sci_name": "sci samambaia",
@@ -164,11 +166,11 @@ Caso dê tudo certo, a resposta será assim:
 ```
 
 
-<h2 id='Plants'>Rotas para as plantas do usuário</h2>
+<h3 id='Plants'>Rotas para as plantas do usuário</h3>
 
 Todas as rotas sobre plantas do usuário precisam de autorização
 
-### <h3 id='ListUserPlant' align ='center'> Listar plantas do usuário</h3>
+### <h4 id='ListUserPlant' align ='center'> Listar plantas do usuário</h4>
 
 `GET /plantas -  FORMATO DA REQUISIÇÃO`
 
@@ -179,27 +181,42 @@ Caso dê tudo certo, a resposta será assim:
 ```json
 [
 	{
-		"name": "orquídea",
-		"id": 3,
-		"userId": 1
+		"userId":1,
+		"name": "planta",
+		"imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ84zJZ5pgI3I-R0yxNFp0-yBUEx0Q68RADTQ&usqp=CAU",
+		"sci_name": "sci planta",
+		"info": "é uma planta",
+		"basic_care": "precisa de terra",
+		"color": "diverse"
+		"id": 1,
 	},
 	{
+		"userId":1,
 		"name": "samambaia",
-		"userId": 1,
-		"id": 4
+		"imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQljUVqZI7wR4zc7b7DMOMKZNBpRymBiQz_6w&usqp=CAU",
+		"sci_name": "sci samambaia",
+		"info": "é uma samambaia",
+		"basic_care": "precisa de muito sol",
+		"color": "green"
+		"id": 1,
 	}
 ]
 ```
 
-<h3 id='AddUserPlant'align ='center'>Adicionar planta na lista do usuário</h3>
+<h4 id='AddUserPlant'align ='center'>Adicionar planta na lista do usuário</h4>
 
 Não se esqueça de passar o id do usuário na propriedade userId
 
 `POST /plants -  FORMATO DA REQUISIÇÃO`
 ```json
 {
+	"userId":1,
 	"name": "samambaia",
-	"userId": 1,
+	"imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQljUVqZI7wR4zc7b7DMOMKZNBpRymBiQz_6w&usqp=CAU",
+	"sci_name": "sci samambaia",
+	"info": "é uma samambaia",
+	"basic_care": "precisa de muito sol",
+	"color": "green"
 }
 ```
 
@@ -208,14 +225,19 @@ Caso dê tudo certo, a resposta será assim:
 `POST /plants -  FORMATO DA RESPOSTA - STATUS 201`
 ```json
 {
+	"userId":1,
 	"name": "samambaia",
-	"userId": 1,
-	"id": 4
+	"imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQljUVqZI7wR4zc7b7DMOMKZNBpRymBiQz_6w&usqp=CAU",
+	"sci_name": "sci samambaia",
+	"info": "é uma samambaia",
+	"basic_care": "precisa de muito sol",
+	"color": "green"
+	"id": 1,
 }
 ```
 
 
-<h3 id='EditUserPlant'align ='center'>Editar planta do usuário</h3>
+<h4 id='EditUserPlant'align ='center'>Editar planta do usuário</h4>
 
 Passe o id da planta na url, e no body as propriedades que deseja alterar
 
@@ -237,7 +259,7 @@ Caso dê tudo certo, a resposta será assim:
 }
 ```
 
-<h3 id='RemoveUserPlant'align ='center'>Delete a planta do usuário</h3>
+<h4 id='RemoveUserPlant'align ='center'>Delete a planta do usuário</h4>
 
 Passe o id da planta na url
 
@@ -251,11 +273,11 @@ Caso dê tudo certo, a resposta será assim:
 {}
 ```
 
-<h2 id='Comments'>Rotas para os comentários das plantas públicas</h2>
+<h3 id='Comments'>Rotas para os comentários das plantas públicas</h3>
 
 Os comentários estão visíveis para todo mundo, mas para criar, editar e deletar eles, é preciso fazer a autenticação.
 
-### <h3 id='ListComments' align ='center'> Listar comentários</h3>
+<h4 id='ListComments' align ='center'> Listar comentários</h4>
 
 `GET /comments -  FORMATO DA REQUISIÇÃO`
 
@@ -315,7 +337,7 @@ Para pesquisar todos os comentários de uma determinada planta pública, segue o
 ]
 ```
 
-<h3 id='AddComments'align ='center'>Adicionar comentário em uma planta pública</h3>
+<h4 id='AddComments'align ='center'>Adicionar comentário em uma planta pública</h4>
 
 Não se esqueça de passar o id do usuário na propriedade userId, e do id da planta que o comentário se refere
 
@@ -346,7 +368,7 @@ Caso dê tudo certo, a resposta será assim:
 }
 ```
 
-<h3 id='EditComments'align ='center'>Editar comentário de uma planta pública</h3>
+<h4 id='EditComments'align ='center'>Editar comentário de uma planta pública</h4>
 
 Passe o id da planta pública na url, e no body as propriedades que deseja alterar
 
@@ -372,7 +394,7 @@ Caso dê tudo certo, a resposta será assim:
 }
 ```
 
-<h3 id='RemoveComments'align ='center'>Deletar o comentário</h3>
+<h4 id='RemoveComments'align ='center'>Deletar o comentário</h4>
 
 Passe o id da planta publica na url
 
