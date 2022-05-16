@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">API que possui uma base de dados de flores pública e gerenciamento de usuários.</p>
-
+****
 O url base da API é https://my-plants-app.herokuapp.com
 
 <a href='./Insomnia_myPlants.json'>Json do Insomnia</a>
@@ -17,11 +17,17 @@ Tabela de conteúdos
 	* [Login](#Login)
 	* [Listar Usuário](#ListUser)
 	* [Listar Usuário com suas plantas](#ListUserWithPlants)
+	* [Listar Usuário com sua lista de desejos](#ListUserWishList)
   * [Plantas do Usuário](#Plants)
     * [Listar plantas](#ListUserPlant)
     * [Adicionar planta](#AddUserPlant)
     * [Editar planta](#EditUserPlant)
     * [Remover planta](#RemoveUserPlant)
+  * [Lista de desejos do Usuário](#WishList)
+    * [Listar plantas](#ListWishList)
+    * [Adicionar planta na lista de desejos](#AddToWishList)
+    * [Editar planta da lista de desejos](#EditWishList)
+    * [Remover planta da lista de desejos](#RemoveFromWishList)
   * [Comentários das plantas públicas](#Comments)
     * [Listar comentários](#ListComments)
   	* [Listar comentários da planta](#ListPublicPlantsComments)
@@ -148,7 +154,7 @@ Caso dê tudo certo, a resposta será assim:
 			"imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ84zJZ5pgI3I-R0yxNFp0-yBUEx0Q68RADTQ&usqp=CAU",
 			"info": "é uma planta",
 			"basic_care": "precisa de terra",
-			"color": "diverse"
+			"color": "diverse",
 			"id": 1,
 		},
 		{
@@ -158,13 +164,51 @@ Caso dê tudo certo, a resposta será assim:
 			"imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQljUVqZI7wR4zc7b7DMOMKZNBpRymBiQz_6w&usqp=CAU",
 			"info": "é uma samambaia",
 			"basic_care": "precisa de muito sol",
-			"color": "green"
+			"color": "green",
 			"id": 2,
 		}
 	]
 }
 ```
 
+<h3 id='ListUserWishList' align ='center'> Listar usuário e sua lista de desejos</h3>
+
+`GET /users/:id?_embed=wish_list - FORMATO DA REQUISIÇÃO`
+
+
+Caso dê tudo certo, a resposta será assim:
+
+`GET /users/:1?_embed=wish_list -  FORMATO DA RESPOSTA - STATUS 201`
+```json
+{
+	"email": "kenzinho@mail.com",
+	"password": "$2a$10$eOVLQ/oykzNV/G7Y9rc3tOsfe9t9lq6BhlNcaiEWK4W8h3VDG0bP6",
+	"name": "Kenzinho",
+	"id": 1,
+	"wish_list": [
+		{
+			"userId":1,
+			"name": "Margarida Amarela",
+			"sci_name": "Coreopsis lanceolata",
+			"imgUrl": "https://i.pinimg.com/736x/a8/19/f2/a819f246aecf86b06348fb2a2308c452.jpg",
+			"info": "A Margarida Amarela é um arbusto compacto de folha perene natural da América do Norte, EUA",
+			"basic_care": "Prefere um clima ameno com pleno sol, e deve ser regada pelo menos uma vez ao dia mas não encharcar o solo",
+			"color": "yellow",
+			"id": 1,
+		},
+		{
+			"userId":1,
+      "name": "Campainha do Deserto",
+      "sci_name": "Phacelia campanularia",
+      "imgUrl": "https://calscape.com/ExtData/allimages/Photos/Phacelia_campanularia_image8.jpg",
+      "info": "Floresce uma vez no ano e é nativa da Califórnia",
+      "basic_care": "A campainha do deserto prefere o sol pleno e um solo arenoso ou drenado",
+      "color": "blue",
+      "id": 2
+    }
+	]
+}
+```
 
 <h3 id='Plants'>Rotas para as plantas do usuário</h3>
 
@@ -269,6 +313,156 @@ Caso dê tudo certo, a resposta será assim:
 Passe o id da planta na url
 
 `DELETE /plants/:id -  FORMATO DA REQUISIÇÃO`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3 id='WishList'>Rotas para a lista de desejos</h3>
+
+Todas as rotas da lista de desejos do usuário precisam de autorização
+
+### <h4 id='ListWishList' align ='center'> Listar as plantas da lista de desejos</h4>
+
+`GET /wish_list -  FORMATO DA REQUISIÇÃO`
+
+
+Caso dê tudo certo, a resposta será assim:
+
+`GET /wish_list -  FORMATO DA RESPOSTA - STATUS 201`
+```json
+[
+	{
+		"userId":1,
+		"name": "Margarida Amarela",
+		"sci_name": "Coreopsis lanceolata",
+		"imgUrl": "https://i.pinimg.com/736x/a8/19/f2/a819f246aecf86b06348fb2a2308c452.jpg",
+		"info": "A Margarida Amarela é um arbusto compacto de folha perene natural da América do Norte, EUA",
+		"basic_care": "Prefere um clima ameno com pleno sol, e deve ser regada pelo menos uma vez ao dia mas não encharcar o solo",
+		"color": "yellow",
+		"id": 1,
+	},
+	{
+		"userId":1,
+		"name": "Campainha do Deserto",
+		"sci_name": "Phacelia campanularia",
+		"imgUrl": "https://calscape.com/ExtData/allimages/Photos/Phacelia_campanularia_image8.jpg",
+		"info": "Floresce uma vez no ano e é nativa da Califórnia",
+		"basic_care": "A campainha do deserto prefere o sol pleno e um solo arenoso ou drenado",
+		"color": "blue",
+		"id": 2
+	}
+]
+```
+
+<h4 id='AddToWishList'align ='center'>Adicionar planta na lista de desejos</h4>
+
+Não se esqueça de passar o id do usuário na propriedade userId
+
+`POST /wish_list -  FORMATO DA REQUISIÇÃO`
+```json
+{
+	"userId":1,
+	"name": "Margarida Amarela",
+	"sci_name": "Coreopsis lanceolata",
+	"imgUrl": "https://i.pinimg.com/736x/a8/19/f2/a819f246aecf86b06348fb2a2308c452.jpg",
+	"info": "A Margarida Amarela é um arbusto compacto de folha perene natural da América do Norte, EUA",
+	"basic_care": "Prefere um clima ameno com pleno sol, e deve ser regada pelo menos uma vez ao dia mas não encharcar o solo",
+	"color": "yellow"
+}
+```
+
+Caso dê tudo certo, a resposta será assim:
+
+`POST /wish_list -  FORMATO DA RESPOSTA - STATUS 201`
+```json
+{
+	"userId":1,
+	"name": "Margarida Amarela",
+	"sci_name": "Coreopsis lanceolata",
+	"imgUrl": "https://i.pinimg.com/736x/a8/19/f2/a819f246aecf86b06348fb2a2308c452.jpg",
+	"info": "A Margarida Amarela é um arbusto compacto de folha perene natural da América do Norte, EUA",
+	"basic_care": "Prefere um clima ameno com pleno sol, e deve ser regada pelo menos uma vez ao dia mas não encharcar o solo",
+	"color": "yellow",
+	"id": 1,
+}
+```
+
+
+<h4 id='EditWishList'align ='center'>Editar um elemento da lista de desejos</h4>
+
+Passe o id do item da lista na url, e no body as propriedades que deseja alterar
+
+`PATCH /wish_list/:id -  FORMATO DA REQUISIÇÃO`
+```json
+{
+	"name": "Margarida muito Amarela"
+}
+```
+
+Caso dê tudo certo, a resposta será assim:
+
+`PATCH /wish_list/:1 -  FORMATO DA RESPOSTA - STATUS 201`
+```json
+{
+	"userId":1,
+	"name": "Margarida muito Amarela",
+	"sci_name": "Coreopsis lanceolata",
+	"imgUrl": "https://i.pinimg.com/736x/a8/19/f2/a819f246aecf86b06348fb2a2308c452.jpg",
+	"info": "A Margarida Amarela é um arbusto compacto de folha perene natural da América do Norte, EUA",
+	"basic_care": "Prefere um clima ameno com pleno sol, e deve ser regada pelo menos uma vez ao dia mas não encharcar o solo",
+	"color": "yellow",
+	"id": 1,
+}
+```
+
+<h4 id='RemoveFromWishList'align ='center'>Delete um item da lista de desejos</h4>
+
+Passe o id do item da lista na url
+
+`DELETE /wish_list/:id -  FORMATO DA REQUISIÇÃO`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <h3 id='Comments'>Rotas para os comentários das plantas públicas</h3>

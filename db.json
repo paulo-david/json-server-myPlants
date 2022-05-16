@@ -7,9 +7,31 @@
       "name": "Kenzinho"
     }
   ],
-  "plants": [],
+  "plants": [
+    {
+      "userId": 1,
+      "name": "samambaia",
+      "sci_name": "sci samambaia",
+      "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQljUVqZI7wR4zc7b7DMOMKZNBpRymBiQz_6w&usqp=CAU",
+      "info": "é uma samambaia",
+      "basic_care": "precisa de muito sol",
+      "color": "green",
+      "id": 1
+    }
+  ],
+  "wish_list": [
+    {
+      "userId": 1,
+      "name": "22222222222  samambaia",
+      "sci_name": "sci samambaia",
+      "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQljUVqZI7wR4zc7b7DMOMKZNBpRymBiQz_6w&usqp=CAU",
+      "info": "é uma samambaia",
+      "basic_care": "precisa de muito sol",
+      "color": "green",
+      "id": 1
+    }
+  ],
   "public_plants": [
-
     {
       "name": "Margarida Amarela",
       "sci_name": "Coreopsis lanceolata",
@@ -65,13 +87,13 @@
       "id": 6
     },
     {
-        "name": "Jasmim Amerelo",
-        "sci_name": "Jasminum mesnyi",
-        "imgUrl": "https://www.sitiodamata.com.br/pub/media/catalog/product/cache/80281f1a4d89199560fc0837e49d13da/j/a/jasmim-amarelo-jasminum-mesnyi_3nd.jpg",
-        "info": "Planta arbustiva de ramos flexíveis, nativa do Vietnã e sul da China",
-        "basic_care": "O Jasmim Amarelo prefere uma meia sombra, sol pleno. Regue o solo ao redor do jasmim durante a estação de crescimento para mantê-lo molhado, mas não encharcado",
-        "color": "yellow",
-        "id": 7
+      "name": "Jasmim Amerelo",
+      "sci_name": "Jasminum mesnyi",
+      "imgUrl": "https://www.sitiodamata.com.br/pub/media/catalog/product/cache/80281f1a4d89199560fc0837e49d13da/j/a/jasmim-amarelo-jasminum-mesnyi_3nd.jpg",
+      "info": "Planta arbustiva de ramos flexíveis, nativa do Vietnã e sul da China",
+      "basic_care": "O Jasmim Amarelo prefere uma meia sombra, sol pleno. Regue o solo ao redor do jasmim durante a estação de crescimento para mantê-lo molhado, mas não encharcado",
+      "color": "yellow",
+      "id": 7
     },
     {
       "name": "Azulzinha",
@@ -89,7 +111,7 @@
       "info": "Floresce uma vez no ano e é nativa da Califórnia",
       "basic_care": "A campainha do deserto prefere o sol pleno e um solo arenoso ou drenado",
       "color": "blue",
-      "id":9
+      "id": 9
     },
     {
       "name": "Bromélia",
@@ -98,7 +120,7 @@
       "info": "Dificilmente floresce e quando floresce as flores são pequenas,  natural do Brasil",
       "basic_care": "Necessita de solo muito permeável, para evitar encharcamentos e apodrecimento das raízes, e prefere sol pleno ou meia sombra",
       "color": "red",
-      "id":10
+      "id": 10
     }
   ],
   "comments": []

@@ -11,6 +11,7 @@ app.db = router.db;
 const rules = auth.rewriter({
   users: 600,
   plants: 600,
+  wish_list: 600,
 
   public_plants:664,
   comments:644,
