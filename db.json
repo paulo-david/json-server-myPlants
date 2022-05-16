@@ -7,30 +7,8 @@
       "name": "Kenzinho"
     }
   ],
-  "plants": [
-    {
-      "userId": 1,
-      "name": "samambaia",
-      "sci_name": "sci samambaia",
-      "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQljUVqZI7wR4zc7b7DMOMKZNBpRymBiQz_6w&usqp=CAU",
-      "info": "é uma samambaia",
-      "basic_care": "precisa de muito sol",
-      "color": "green",
-      "id": 1
-    }
-  ],
-  "wish_list": [
-    {
-      "userId": 1,
-      "name": "22222222222  samambaia",
-      "sci_name": "sci samambaia",
-      "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQljUVqZI7wR4zc7b7DMOMKZNBpRymBiQz_6w&usqp=CAU",
-      "info": "é uma samambaia",
-      "basic_care": "precisa de muito sol",
-      "color": "green",
-      "id": 1
-    }
-  ],
+  "plants": [],
+  "wish_list": [],
   "public_plants": [
     {
       "name": "Margarida Amarela",
