@@ -7,7 +7,28 @@
       "name": "Kenzinho"
     }
   ],
-  "plants": [],
+  "plants": [
+    {
+      "userId": 1,
+      "name": "Margarida Amarela",
+      "sci_name": "Coreopsis lanceolata",
+      "imgUrl": "https://i.pinimg.com/736x/a8/19/f2/a819f246aecf86b06348fb2a2308c452.jpg",
+      "info": "A Margarida Amarela é um arbusto compacto de folha perene natural da América do Norte, EUA",
+      "basic_care": "Prefere um clima ameno com pleno sol, e deve ser regada pelo menos uma vez ao dia mas não encharcar o solo",
+      "color": "yellow",
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "name": "Margarida Amarela",
+      "sci_name": "Coreopsis lanceolata",
+      "imgUrl": "https://i.pinimg.com/736x/a8/19/f2/a819f246aecf86b06348fb2a2308c452.jpg",
+      "info": "A Margarida Amarela é um arbusto compacto de folha perene natural da América do Norte, EUA",
+      "basic_care": "Prefere um clima ameno com pleno sol, e deve ser regada pelo menos uma vez ao dia mas não encharcar o solo",
+      "color": "yellow",
+      "id": 2
+    }
+  ],
   "wish_list": [],
   "public_plants": [
     {
